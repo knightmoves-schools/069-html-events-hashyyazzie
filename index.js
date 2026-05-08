@@ -1,20 +1,20 @@
 function calculateSquare() {
-    // Select the elements
-    let input = document.getElementById('number');
-    let result = document.getElementById('result');
-    
-    // Get the value from the input
-    let val = input.value;
+  // 1. Select the elements by their IDs
+  const input = document.getElementById('number');
+  const result = document.getElementById('result');
+  const value = input.value;
 
-    // VALIDATION:
-    // We check if it's empty OR if it's not a number.
-    // .trim() ensures that a string of just spaces is also caught.
-    if (val.trim() === "" || isNaN(val)) {
-        result.innerHTML = "Invalid, please enter a number";
-    } else {
-        // MATH:
-        // Multiplying a numeric string by itself forces JS to treat it as a number.
-        let squared = val * val;
-        result.innerHTML = squared;
-    }
+  // 2. Validation Logic
+  // We check if it's empty (val.trim() === "") OR if it's not a number (isNaN)
+  if (value.trim() === "" || isNaN(value)) {
+    result.textContent = "Invalid, please enter a number";
+  } else {
+    // 3. Calculation Logic
+    const num = Number(value);
+    result.textContent = num * num;
+  }
 }
+
+// 4. The "Wiring" 
+// This tells the button to run the function when clicked.
+document.getElementById('calculate').onclick = calculateSquare;
