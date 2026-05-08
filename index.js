@@ -1,15 +1,15 @@
 function calculateSquare() {
-  let value = document.getElementById('number').value;
-  let result = document.getElementById('result');
+  const input = document.getElementById('number');
+  const result = document.getElementById('result');
+  const value = input.value;
 
-  // Convert the input string to a number
-  let num = Number(value);
-
-  // Check if the value is empty or not a valid number
-  if (value === '' || isNaN(num)) {
+  // 1. Check if the input is empty or contains only whitespace
+  // 2. Check if the value is not a valid number
+  if (value.trim() === '' || isNaN(value)) {
     result.innerText = 'Invalid, please enter a number';
   } else {
-    // Multiply the number by itself and display the result
+    // 3. Convert to number and multiply by itself
+    const num = Number(value);
     result.innerText = num * num;
   }
 }
